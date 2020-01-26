@@ -1,22 +1,10 @@
 'use strict';
 
-// const menuOpenElement = document.querySelectorAll('.main-nav__burger');
-// menuOpenElement.addEventListener('click', onClickMoveMenu);
-// openElement.classList.add('active');
-// closeElement.classList.remove('active');
-// setTimeout(closeMenu, 600);
-// const 
-// parseint для того чтобы убрать доллар
-// забрать информацию из дом-элементов в массив блоков
-// 2. Найти все нужные дом-элементы и записать в переменные/сформировать из них списки/объекты
-// 3. написать функцию генерирования и отрисовки карточек (рандомный порядок)
-// 4. написать функцию сортировки
-// 3. поставить слушатель на кнопку сортировки
-
 const productsElements = [...document.querySelectorAll('.product__item')];
-const filterButtons = [...document.querySelectorAll('.product__filter-btn')];
+const btnsContainerElement = document.querySelector('.product__filter-buttons');
+const productContainerElement = document.querySelector('.product__list');
 
-let products = productsElements.map(element => {
+const products = productsElements.map(element => {
   return {
     price: parseInt(element.querySelector('.product__num').innerText, 10),
     name: element.querySelector('.product__title-desc').innerText,
@@ -24,87 +12,51 @@ let products = productsElements.map(element => {
   };
 });
 
-console.log(products);
+const createProduct = (data) => {
+  const productsCard = productsElements[0].cloneNode(true);
 
-// var renderProduct = function (descAndPhoto) {
-//   var similarPhotosElement = document.querySelector('#picture')
-//     .content
-//     .querySelector('.picture');
-//   var userPhotosElement = similarPhotosElement.cloneNode(true);
+  productsCard.querySelector('.product__num').textContent = data.price + '$';
+  productsCard.querySelector('.product__title-desc').textContent = data.name;
+  productsCard.querySelector('.product__desc').textContent = data.description;
 
-//   userPhotosElement.querySelector('.picture__img').src = descAndPhoto.url;
-//   userPhotosElement.querySelector('.picture__likes').textContent = descAndPhoto.likes;
-//   userPhotosElement.querySelector('.picture__comments').textContent = descAndPhoto.comments.length;
-//   userPhotosElement.addEventListener('click', function () {
-//     window.preview(descAndPhoto);
-//   });
+  return productsCard;
+};
 
-//   return userPhotosElement;
-// };
+const updateProducts = (data) => {
+  let fragment = document.createDocumentFragment();
+  data.forEach((it) => fragment.appendChild(createProduct(it)));
 
-// var renderUserPhotos = window.util.debounce(function (dataPhoto) {
-//   var fragment = document.createDocumentFragment();
-//   dataPhoto.forEach(function (it) {
-//     fragment.appendChild(renderPhoto(it));
-//   });
+  productContainerElement.innerHTML = '';
+  productContainerElement.appendChild(fragment);
+};
 
-//   picturesElement.appendChild(fragment);
-// });
+const compareProducts = (first, second) => first.price - second.price;
 
-var updateProducts = function (arr) {
-  if (filterButtons[0].classList.contains('active')) {
-    return arr;
+const sortProducts = (arr, order) => {
+  if (order === 'asc') {
+    return arr.slice().sort(compareProducts);
   }
 
-  if (filterButtons[1].classList.contains('active')) {
-    var cheapProductsArr = arr.slice().sort(function (first, second) {
-      if (first.price > second.price) {
-        return 1;
-      } else if (first.price < second.price) {
-        return -1;
-      } else {
-        return 0;
-      }
-    });
-    return cheapProductsArr;
-  }
-
-  if (filterButtons[2].classList.contains('active')) {
-    var expensiveProductsArr = arr.slice().sort(function (first, second) {
-      if (first.price < second.price) {
-        return 1;
-      } else if (first.price > second.price) {
-        return -1;
-      } else {
-        return 0;
-      }
-    });
-    return expensiveProductsArr;
+  if (order === 'desc') {
+    return arr.slice().sort(compareProducts).reverse();
   }
 
   return arr;
 };
 
-var onFilterClick = function (buttonsArr, index, productsArr) {
-  buttonsArr.forEach(function (it) {
-    if (it.classList.contains('active')) {
-      it.classList.remove('active');
-    }
-  });
+const onSortClick = ({ target }) => {
+  if (!target.dataset.order || target.classList.contains('active')) {
+    return;
+  }
 
-  buttonsArr[index].classList.add('active');
-  // window.util.removeOldChildrens('.picture');
-  // renderUserPhotos(updatePhotos(productsArr));
+  [...btnsContainerElement.children].forEach(element => {
+    element.classList.remove('active');
+  });
+  target.classList.add('active');
+
+  const sortedProducts = sortProducts(products, target.dataset.order);
+  updateProducts(sortedProducts);
 };
 
-var setupFilter = function (productsArr) {
-  filterButtons[1].addEventListener('click', function () {
-    onFilterClick(filterButtons, 1, productsArr);
-  });
-  filterButtons[2].addEventListener('click', function () {
-    onFilterClick(filterButtons, 2, productsArr);
-  });
-  filterButtons[0].addEventListener('click', function () {
-    onFilterClick(filterButtons, 0, productsArr);
-  });
-};
+btnsContainerElement.addEventListener('click', onSortClick);
+
