@@ -1,0 +1,43 @@
+.landing-page {
+
+  .provoke__item--contact,
+  .provoke__item--external,
+  .important__message--content,
+  & .landing-promo__wrap--homo {
+    display: none;
+  }
+
+  .wheel-promo__item {
+    opacity: 0.37;
+
+    @media (min-width: $tablet-width) {
+
+      &:hover,
+      &:focus {
+        & .wheel-promo__tooltip {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .active.wheel-promo__item {
+    transform: scale(1.2);
+    z-index: 0;
+    opacity: 1;
+
+    &:hover .wheel-promo__tooltip,
+    &:focus .wheel-promo__tooltip {
+      display: none;
+    }
+
+    @media (min-width: 900px) {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+}
+
+.landing-page__provoke {
+  background-color: $blue-light;
+  color: #474747;
+}

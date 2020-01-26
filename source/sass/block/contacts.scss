@@ -1,0 +1,36 @@
+.contacts {
+  width: 260px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contacts__item {
+  margin-right: 13px;
+
+  &:nth-child(4n) {
+    margin-right: 0;
+  }
+}
+
+.contacts__link {
+  width: 100%;
+  img {
+    width: 42px;
+    height: 100%;
+  }
+  &--instagram{
+    img {
+     width: auto; 
+    }
+  }
+}
+
+
+@media (min-width: 1050px) {
+  .contacts {
+    margin: 0;
+    padding: 0;
+  }
+}

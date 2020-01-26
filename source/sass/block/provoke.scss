@@ -1,0 +1,56 @@
+.provoke {
+  padding-top: 75px;
+  padding-bottom: 75px;
+  // padding-left: 20px;
+  // padding-right: 20px;
+  background-color: $blue-dark;
+  color: white;
+}
+
+.provoke__text {
+  margin: 0 auto;
+  margin-bottom: 40px;
+  max-width: 80%;
+  font-size: 28px;
+  line-height: 37px;
+  font-family: $font-accent;
+  text-align: center;
+}
+
+.provoke__link {
+  @include btn;
+  margin: 0 auto;
+  width: 145px;
+  background-color: $green;
+}
+
+@media (min-width: $tablet-width) {
+  .provoke {
+    & .provoke__text {
+      max-width: 70%;
+      width: auto;
+    }
+  }
+
+  .provoke__item .provoke__link {
+    width: 225px;
+    max-width: 23%;
+  }
+}
+
+@media (min-width: 1050px) {
+  .provoke__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .provoke__text {
+    margin-bottom: 0;
+    margin-right: 0;
+    text-align: right;
+    font-size: 32px;
+    line-height: 37px;
+  }
+}

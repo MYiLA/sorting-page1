@@ -1,0 +1,48 @@
+@mixin arrow {
+  display: block;
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background-color: #d5eae4;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.6s;
+
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+    outline: none;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+  
+  &::before,
+  &::after {
+    content: "";
+    position: absolute; 
+  }
+
+  &::before{
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 1px;
+    background-color: #797979;
+  }
+
+  &::after{
+    top: 39%;
+    left: 28%;
+    transform: rotate(-45deg) ;
+    width: 11px;
+    height: 11px;
+    border: solid 1px #797979;
+    border-right: none;
+    border-bottom: none;
+  }
+}

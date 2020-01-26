@@ -1,0 +1,65 @@
+.media {
+  width: 100%;
+}
+
+.media__figure {
+  width: 100%;
+  position: relative;
+  padding: 0;
+  margin: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $white;
+    opacity: .44;
+    pointer-events: auto;
+  }
+
+  .media__video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.media__play {
+  @include play-button;
+  z-index: 1;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.media.active {
+  .media__play {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .media__figure::after {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@media (min-width: $tablet-width) {
+
+  
+  .media__figure {
+    height: 500px;
+    width: auto;
+    overflow: hidden;
+  }
+
+  .media__video {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%, -50%);
+  }
+}

@@ -1,0 +1,38 @@
+doctype html
+html(lang="fr")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title Pearson
+    link(rel="preload" href="fonts/opensans-regular.woff2" as="font" crossorigin="anonymous")
+    link(rel="preload" href="fonts/opensans-semibold.woff2" as="font" crossorigin="anonymous")
+    link(rel="preload" href="fonts/playfairdisplay-regular.woff2" as="font" crossorigin="anonymous")
+    link(rel="stylesheet" href="glide/glide.core.min.css")
+    link(rel="stylesheet" href="css/style.min.css")
+
+  body
+    include ../modules/header
+
+    main(class="content-page")
+      div(class="content-page__cover" style="background-image: url(img/content/content-cover.jpg); background-position: 50% 50%; background-size: cover; background-repeat: no-repeat;")
+      h1(class="content-page__title") Titre de la page
+      p(class="content-page__desc") Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam 
+      div(class="content-page__important important")
+        include ../modules/important
+      p(class="content-page__desc") Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil 
+      div(class="content-page__provoke provoke")
+        include ../modules/provoke
+      div(class="content-page__infographics infographics")
+        include ../modules/infographics
+      div(class="content-page__media media")
+        include ../modules/media
+
+    include ../modules/footer
+    include ../modules/form
+    include ../modules/popup-video
+   
+    script(src="js/polyfill.min.js")
+    script(src="js/jquery-2.2.3.min.js")
+    script(src="js/script.js")
+    

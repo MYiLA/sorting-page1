@@ -1,0 +1,36 @@
+@import "variables.scss";
+@import "animations.scss";
+
+@import "mixins/visually-hidden.scss";
+@import "mixins/text.scss";
+@import "mixins/btn.scss";
+@import "mixins/close-btn.scss";
+@import "mixins/popup.scss";
+@import "mixins/input.scss";
+@import "mixins/play-button.scss";
+@import "mixins/arrow.scss";
+
+@import "block/global.scss";
+@import "block/main-nav.scss";
+@import "block/contacts.scss";
+@import "block/additional.scss";
+@import "block/advantage.scss";
+@import "block/content-reviews.scss";
+@import "block/content-slider.scss";
+@import "block/footer.scss";
+@import "block/form.scss";
+@import "block/popup-video.scss";
+@import "block/header.scss";
+@import "block/important.scss";
+@import "block/infographics.scss";
+@import "block/landing-media.scss";
+@import "block/landing-promo.scss";
+@import "block/media.scss";
+@import "block/product.scss";
+@import "block/promo-slider.scss";
+@import "block/provoke.scss";
+@import "block/wheel-promo.scss";
+
+@import "block/home-page.scss";
+@import "block/landing-page.scss";
+@import "block/content-page.scss";
