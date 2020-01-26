@@ -26,6 +26,15 @@ let products = productsElements.map(element => {
 
 console.log(products);
 
+//   var renderUserPhotos = window.util.debounce(function (dataPhoto) {
+//   var fragment = document.createDocumentFragment();
+//   dataPhoto.forEach(function (it) {
+//     fragment.appendChild(renderPhoto(it));
+//   });
+
+//   picturesElement.appendChild(fragment);
+// });
+
 
 var updateProducts = function (arr) {
   if (filterButtons[0].classList.contains('active')) {
@@ -71,4 +80,16 @@ var onFilterClick = function (buttonsArr, index, productsArr) {
   buttonsArr[index].classList.add('active');
   // window.util.removeOldChildrens('.picture');
   // renderUserPhotos(updatePhotos(productsArr));
+};
+
+var setupFilter = function (productsArr) {
+  filterButtons[1].addEventListener('click', function () {
+    onFilterClick(filterButtons, 1, productsArr);
+  });
+  filterButtons[2].addEventListener('click', function () {
+    onFilterClick(filterButtons, 2, productsArr);
+  });
+  filterButtons[0].addEventListener('click', function () {
+    onFilterClick(filterButtons, 0, productsArr);
+  });
 };

@@ -24,7 +24,6 @@
 
 html,
 body {
-  position: relative;
   box-sizing: border-box;
   max-width: 100%;
   min-width: $mobile-width;
@@ -37,93 +36,10 @@ body {
   margin: 0;
 }
 
-button {
-  cursor: pointer;
-  transition: 0.3s;
-
-  &:focus,
-  &:hover {
-    outline: none;
-    opacity: 0.9;
-  }
-
-  &:active {
-    opacity: 0.7;
-  }
-}
-
-a {
-  text-decoration: none;
-  @include text;
-  color: $blue-dark;
-  transition: 0.3s;
-
-  &:focus,
-  &:hover {
-    outline: none;
-    opacity: 0.6;
-  }
-
-  &:active {
-    opacity: 0.3;
-  }
-}
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $font-accent;
-  font-weight: 400;
-  line-height: 1.3em;
-}
-
-h1 {
-  font-family: $font-main;
-  font-size: 36px;
-  color: #474747;
-}
-
-h2 {
-  font-size: 32px;
-  color: $blue-dark;
-}
-
-h3 {
-  font-size: 20px;
-  color: $blue-dark;
-}
-
-h4,
-h5,
-h6 {
-  color: $blue-black;
-}
-
-em {
-  font-family: "OpensSansItalic", sans-serif;
-}
-
-.visually-hidden {
-  @include visually-hidden;
-}
-
-.fixed {
-  width: 100%;
-  position: fixed;
-  z-index: 2;
-}
-
-.static {
-  position: static;
 }
 
 .wrap {
@@ -138,20 +54,5 @@ em {
   @media (min-width: 1440px) {
     width: 1340px;
     margin: 0 auto;
-  }
-}
-
-@media (min-width:$tablet-width) {
-
-  h1 {
-    font-size: 52px;
-  }
-
-  h2 {
-    font-size: 48px;
-  }
-
-  h3 {
-    font-size: 36px;
   }
 }
