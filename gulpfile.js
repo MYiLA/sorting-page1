@@ -37,10 +37,6 @@ gulp.task('htmlBeautify', () => {
 
 gulp.task('js', () => {
   return gulp.src('source/js/**')
-    .pipe(babel({
-      presets: ['@babel/preset-env']
-    }))
-    .pipe(uglify())
     .pipe(gulp.dest('build/js'))
 });
 
