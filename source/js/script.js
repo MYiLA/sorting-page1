@@ -26,7 +26,23 @@ let products = productsElements.map(element => {
 
 console.log(products);
 
-//   var renderUserPhotos = window.util.debounce(function (dataPhoto) {
+// var renderProduct = function (descAndPhoto) {
+//   var similarPhotosElement = document.querySelector('#picture')
+//     .content
+//     .querySelector('.picture');
+//   var userPhotosElement = similarPhotosElement.cloneNode(true);
+
+//   userPhotosElement.querySelector('.picture__img').src = descAndPhoto.url;
+//   userPhotosElement.querySelector('.picture__likes').textContent = descAndPhoto.likes;
+//   userPhotosElement.querySelector('.picture__comments').textContent = descAndPhoto.comments.length;
+//   userPhotosElement.addEventListener('click', function () {
+//     window.preview(descAndPhoto);
+//   });
+
+//   return userPhotosElement;
+// };
+
+// var renderUserPhotos = window.util.debounce(function (dataPhoto) {
 //   var fragment = document.createDocumentFragment();
 //   dataPhoto.forEach(function (it) {
 //     fragment.appendChild(renderPhoto(it));
@@ -34,7 +50,6 @@ console.log(products);
 
 //   picturesElement.appendChild(fragment);
 // });
-
 
 var updateProducts = function (arr) {
   if (filterButtons[0].classList.contains('active')) {
